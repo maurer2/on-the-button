@@ -9,21 +9,21 @@
     "vitest",
     "unicorn",
     "react-perf",
-    "vitest",
+    "vitest"
   ],
   "options": {
     "typeAware": true,
-    "typeCheck": true,
+    "typeCheck": true
   },
   "env": {
-    "builtin": true,
+    "builtin": true
   },
   "ignorePatterns": [
     "**/dist/**",
     "**/build/**",
     "**/coverage/**",
     "**/snap/**",
-    "**/vite.config.*.timestamp-*.*",
+    "**/vite.config.*.timestamp-*.*"
   ],
   "rules": {},
   "overrides": [
@@ -77,8 +77,8 @@
           "error",
           {
             "ts-expect-error": false,
-            "ts-ignore": "allow-with-description",
-          },
+            "ts-ignore": "allow-with-description"
+          }
         ],
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/no-duplicate-enum-values": "error",
@@ -87,8 +87,8 @@
         "@typescript-eslint/no-inferrable-types": [
           "error",
           {
-            "ignoreParameters": true,
-          },
+            "ignoreParameters": true
+          }
         ],
         "@typescript-eslint/no-misused-new": "error",
         "@typescript-eslint/no-namespace": "error",
@@ -103,12 +103,12 @@
         "import/consistent-type-specifier-style": "off",
         "import/first": "error",
         "import/no-commonjs": "error",
-        "import/no-duplicates": "error",
+        "import/no-duplicates": "error"
       },
       "env": {
         "es2020": true,
-        "browser": true,
-      },
-    },
-  ],
+        "browser": true
+      }
+    }
+  ]
 }

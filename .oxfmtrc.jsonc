@@ -6,18 +6,28 @@
   "printWidth": 100,
   "sortPackageJson": {
     "sortScripts": true,
+    "sortDependencies": true
   },
   "sortTailwindcss": {
     "stylesheet": "./src/styles.css",
     "functions": ["clsx", "classname"],
-    "preserveWhitespace": false,
+    "preserveWhitespace": false
   },
   "ignorePatterns": [
     "package-lock.json",
     "pnpm-lock.yaml",
     "yarn.lock",
     "routeTree.gen.ts",
-    "README.md",
+    "README.md"
   ],
   "jsxSingleQuote": false,
+  // Workaround for JSON formatting inconsistency between VSCode and npm script: https://github.com/oxc-project/oxc-vscode/issues/140
+  "overrides": [
+    {
+      "files": ["**/*.json", "**/*.jsonc"],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ]
 }
