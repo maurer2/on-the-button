@@ -10,6 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlainCheckboxIndexRouteImport } from './routes/plain-checkbox/index'
+import { Route as CheckboxWithSwitchRoleIndexRouteImport } from './routes/checkbox-with-switch-role/index'
+import { Route as ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRouteImport } from './routes/button-with-switch-role-and-aria-checked-attribute/index'
 import { Route as ButtonWithAriaPressedAttributeIndexRouteImport } from './routes/button-with-aria-pressed-attribute/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -17,6 +20,23 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlainCheckboxIndexRoute = PlainCheckboxIndexRouteImport.update({
+  id: '/plain-checkbox/',
+  path: '/plain-checkbox/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckboxWithSwitchRoleIndexRoute =
+  CheckboxWithSwitchRoleIndexRouteImport.update({
+    id: '/checkbox-with-switch-role/',
+    path: '/checkbox-with-switch-role/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute =
+  ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRouteImport.update({
+    id: '/button-with-switch-role-and-aria-checked-attribute/',
+    path: '/button-with-switch-role-and-aria-checked-attribute/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ButtonWithAriaPressedAttributeIndexRoute =
   ButtonWithAriaPressedAttributeIndexRouteImport.update({
     id: '/button-with-aria-pressed-attribute/',
@@ -27,27 +47,55 @@ const ButtonWithAriaPressedAttributeIndexRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/button-with-aria-pressed-attribute/': typeof ButtonWithAriaPressedAttributeIndexRoute
+  '/button-with-switch-role-and-aria-checked-attribute/': typeof ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute
+  '/checkbox-with-switch-role/': typeof CheckboxWithSwitchRoleIndexRoute
+  '/plain-checkbox/': typeof PlainCheckboxIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/button-with-aria-pressed-attribute': typeof ButtonWithAriaPressedAttributeIndexRoute
+  '/button-with-switch-role-and-aria-checked-attribute': typeof ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute
+  '/checkbox-with-switch-role': typeof CheckboxWithSwitchRoleIndexRoute
+  '/plain-checkbox': typeof PlainCheckboxIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/button-with-aria-pressed-attribute/': typeof ButtonWithAriaPressedAttributeIndexRoute
+  '/button-with-switch-role-and-aria-checked-attribute/': typeof ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute
+  '/checkbox-with-switch-role/': typeof CheckboxWithSwitchRoleIndexRoute
+  '/plain-checkbox/': typeof PlainCheckboxIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/button-with-aria-pressed-attribute/'
+  fullPaths:
+    | '/'
+    | '/button-with-aria-pressed-attribute/'
+    | '/button-with-switch-role-and-aria-checked-attribute/'
+    | '/checkbox-with-switch-role/'
+    | '/plain-checkbox/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/button-with-aria-pressed-attribute'
-  id: '__root__' | '/' | '/button-with-aria-pressed-attribute/'
+  to:
+    | '/'
+    | '/button-with-aria-pressed-attribute'
+    | '/button-with-switch-role-and-aria-checked-attribute'
+    | '/checkbox-with-switch-role'
+    | '/plain-checkbox'
+  id:
+    | '__root__'
+    | '/'
+    | '/button-with-aria-pressed-attribute/'
+    | '/button-with-switch-role-and-aria-checked-attribute/'
+    | '/checkbox-with-switch-role/'
+    | '/plain-checkbox/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ButtonWithAriaPressedAttributeIndexRoute: typeof ButtonWithAriaPressedAttributeIndexRoute
+  ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute: typeof ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute
+  CheckboxWithSwitchRoleIndexRoute: typeof CheckboxWithSwitchRoleIndexRoute
+  PlainCheckboxIndexRoute: typeof PlainCheckboxIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -57,6 +105,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plain-checkbox/': {
+      id: '/plain-checkbox/'
+      path: '/plain-checkbox'
+      fullPath: '/plain-checkbox/'
+      preLoaderRoute: typeof PlainCheckboxIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkbox-with-switch-role/': {
+      id: '/checkbox-with-switch-role/'
+      path: '/checkbox-with-switch-role'
+      fullPath: '/checkbox-with-switch-role/'
+      preLoaderRoute: typeof CheckboxWithSwitchRoleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/button-with-switch-role-and-aria-checked-attribute/': {
+      id: '/button-with-switch-role-and-aria-checked-attribute/'
+      path: '/button-with-switch-role-and-aria-checked-attribute'
+      fullPath: '/button-with-switch-role-and-aria-checked-attribute/'
+      preLoaderRoute: typeof ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/button-with-aria-pressed-attribute/': {
@@ -73,6 +142,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ButtonWithAriaPressedAttributeIndexRoute:
     ButtonWithAriaPressedAttributeIndexRoute,
+  ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute:
+    ButtonWithSwitchRoleAndAriaCheckedAttributeIndexRoute,
+  CheckboxWithSwitchRoleIndexRoute: CheckboxWithSwitchRoleIndexRoute,
+  PlainCheckboxIndexRoute: PlainCheckboxIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

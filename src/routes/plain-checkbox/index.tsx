@@ -1,20 +1,21 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
-  component: ButtonWithAriaPressedAttribute,
+export const Route = createFileRoute('/plain-checkbox/')({
+  component: PlainCheckbox,
 });
 
-function ButtonWithAriaPressedAttribute() {
+function PlainCheckbox() {
   const code = `
-    <button aria-pressed="false" type="button" className="border p-2">
+    <label for="checkbox">
       Text
-    </button>
+    </label>
+    <input type="checkbox" name="checkbox" id="checkbox" value="value" />
   `;
 
   return (
     <main className="page-wrap px-4 py-12">
       <header>
-        <h1>Button with aria-pressed attribute</h1>
+        <h1>Plain checkbox</h1>
         <p>Text</p>
         {/* <nav>
           <ul>

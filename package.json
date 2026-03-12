@@ -6,12 +6,12 @@
     "#/*": "./src/*"
   },
   "scripts": {
-    "dev": "vite dev --port 3000",
     "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest run",
+    "dev": "vite dev --port 3000",
+    "format": "oxfmt .",
     "lint": "oxlint .",
-    "format": "oxfmt ."
+    "preview": "vite preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
