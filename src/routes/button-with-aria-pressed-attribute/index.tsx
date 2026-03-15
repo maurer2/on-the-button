@@ -1,7 +1,6 @@
-// oxlint-disable jsx_a11y/click-events-have-key-events
-// oxlint-disable jsx_a11y/no-static-element-interactions
 import { createFileRoute } from '@tanstack/react-router';
 import { useReducer } from 'react';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
 export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
   component: ButtonWithAriaPressedAttribute,
@@ -9,11 +8,17 @@ export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
 
 function ButtonWithAriaPressedAttribute() {
   const [isPressed, toggleIsPressed] = useReducer((currentIsPressed) => !currentIsPressed, false);
-  const code = `
-    <button aria-pressed="${isPressed ? 'true' : 'false'}" type="button">
+
+  const button = (
+    <button aria-pressed={isPressed} type="button" onClick={toggleIsPressed}>
       Button label
     </button>
-  `;
+  );
+  const buttonAsString = reactElementToJSXString(button, {
+    filterProps: ['data-tsd-source', 'onClick'],
+    tabStop: 4,
+    useBooleanShorthandSyntax: false, // keep aria-pressed={false}
+  });
 
   return (
     <main className="page-wrap px-4 py-12">
@@ -38,16 +43,14 @@ function ButtonWithAriaPressedAttribute() {
       <section aria-labelledby="code">
         <h2 id="code">Code</h2>
         <pre>
-          <code>{code}</code>
+          <code>{buttonAsString}</code>
         </pre>
       </section>
       <section aria-labelledby="example">
         <h2 id="example">Example</h2>
-        <div
-          dangerouslySetInnerHTML={{ __html: code }}
-          className="[&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button:focus-within]:text-red-500 [&>button:focus-within]:underline [&>button:hover]:underline"
-          onClick={toggleIsPressed} // workaround
-        />
+        <div className="[&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button:focus-within]:text-red-500 [&>button:focus-within]:underline [&>button:hover]:underline">
+          {button}
+        </div>
       </section>
       <section aria-labelledby="use-case">
         <h2 id="use-case">Use cases</h2>

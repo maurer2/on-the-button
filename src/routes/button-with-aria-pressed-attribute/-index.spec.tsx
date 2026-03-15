@@ -57,7 +57,10 @@ describe('Button with aria-pressed attribute', () => {
       expect(button).not.toBePressed();
 
       await user.click(button);
-      expect(exampleSection.getByRole('button', { name: 'Button label' })).toBePressed();
+      expect(button).toBePressed();
+
+      await user.click(button);
+      expect(button).not.toBePressed();
     });
   });
 });
