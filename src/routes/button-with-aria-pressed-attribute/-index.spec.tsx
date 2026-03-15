@@ -1,43 +1,22 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
-import { createRouter, RouterProvider } from '@tanstack/react-router';
+import userEvent from '@testing-library/user-event';
+import { screen, within } from '@testing-library/react';
 
-import { routeTree } from '../../routeTree.gen';
-
-// https://dev.to/daelmaak/how-to-test-tanstack-router-4f51
-async function setupRouter() {
-  const router = createRouter({
-    defaultPendingMinMs: 0,
-    routeTree,
-  });
-  render(<RouterProvider<typeof router> router={router} />);
-
-  return router;
-}
+import { openPage } from '#/helpers/tests-helpers';
 
 describe('Button with aria-pressed attribute', () => {
   const routePath = '/button-with-aria-pressed-attribute';
 
   describe('General page', () => {
     it('should render', async () => {
-      const router = await setupRouter();
-      await act(async () => {
-        await router.navigate({
-          to: routePath,
-        });
-      });
+      await openPage(routePath);
 
       expect(screen.getByRole('main')).toBeInTheDocument();
       expect(screen.getByRole('main')).not.toBeEmptyDOMElement();
     });
 
     it('should show main parts', async () => {
-      const router = await setupRouter();
-      await act(async () => {
-        await router.navigate({
-          to: routePath,
-        });
-      });
+      await openPage(routePath);
 
       expect(
         screen.getByRole('heading', { level: 1, name: 'Button with aria-pressed attribute' }),
@@ -47,18 +26,38 @@ describe('Button with aria-pressed attribute', () => {
       expect(screen.getByRole('region', { name: 'Example' })).toBeInTheDocument();
       expect(screen.getByRole('region', { name: 'Use cases' })).toBeInTheDocument();
     });
+
+    it.skip('should match aria-snapshot', async () => {
+      await openPage(routePath);
+
+      // @ts-expect-error not implemented yet https://github.com/vitest-dev/vitest/pull/9668
+      expect(screen.getByRole('main')).toMatchAriaSnapshot();
+    });
   });
 
-  describe.todo('Button accesibility', () => {
-    it('should render the button', async () => {
-      const router = await setupRouter();
-      await act(async () => {
-        await router.navigate({
-          to: routePath,
-        });
-      });
+  describe('Example button', () => {
+    it('should render the example button', async () => {
+      await openPage(routePath);
 
-      expect(screen.getByRole('button', { name: 'Button label' })).toBeInTheDocument();
+      const exampleSection = within(screen.getByRole('region', { name: 'Example' }));
+      const button = exampleSection.getByRole('button', { name: 'Button label' });
+
+      expect(button).toBeInTheDocument();
+      expect(button).not.toBePressed();
+    });
+
+    it('should toggle the pressed status on click', async () => {
+      const user = userEvent.setup();
+
+      await openPage(routePath);
+
+      const exampleSection = within(screen.getByRole('region', { name: 'Example' }));
+      const button = exampleSection.getByRole('button', { name: 'Button label' });
+
+      expect(button).not.toBePressed();
+
+      await user.click(button);
+      expect(exampleSection.getByRole('button', { name: 'Button label' })).toBePressed();
     });
   });
 });

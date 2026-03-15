@@ -1,12 +1,16 @@
+// oxlint-disable jsx_a11y/click-events-have-key-events
+// oxlint-disable jsx_a11y/no-static-element-interactions
 import { createFileRoute } from '@tanstack/react-router';
+import { useReducer } from 'react';
 
 export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
   component: ButtonWithAriaPressedAttribute,
 });
 
 function ButtonWithAriaPressedAttribute() {
+  const [isPressed, toggleIsPressed] = useReducer((currentIsPressed) => !currentIsPressed, false);
   const code = `
-    <button aria-pressed="false" type="button">
+    <button aria-pressed="${isPressed ? 'true' : 'false'}" type="button">
       Button label
     </button>
   `;
@@ -42,7 +46,8 @@ function ButtonWithAriaPressedAttribute() {
         <div
           dangerouslySetInnerHTML={{ __html: code }}
           className="[&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button:focus-within]:text-red-500 [&>button:focus-within]:underline [&>button:hover]:underline"
-        ></div>
+          onClick={toggleIsPressed} // workaround
+        />
       </section>
       <section aria-labelledby="use-case">
         <h2 id="use-case">Use cases</h2>
