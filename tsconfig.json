@@ -8,7 +8,13 @@
       "#/*": ["./src/*"]
     },
     "lib": ["ES2024", "DOM", "DOM.Iterable"],
-    "types": ["vite/client", "node"],
+    "types": [
+      "node",
+      "vite/client",
+      "@testing-library/jest-dom",
+      "vitest/globals",
+      "jest-extended"
+    ],
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
