@@ -42,7 +42,10 @@ function ButtonWithAriaPressedAttribute() {
               <a href="#use-case">Use cases</a>
             </li>
             <li>
-              <a href="#screen-readers-and-testing-tools">Screen readers and Testing tools</a>
+              <a href="#screen-readers">Screen readers</a>
+            </li>
+            <li>
+              <a href="#testing">Testing</a>
             </li>
           </ul>
         </nav>
@@ -57,9 +60,7 @@ function ButtonWithAriaPressedAttribute() {
 
       <section aria-labelledby="example">
         <h2 id="example">Example</h2>
-        <div className="[&>button]:border [&>button]:px-4 [&>button]:py-2 [&>button:focus-within]:text-red-500 [&>button:focus-within]:underline [&>button:hover]:underline">
-          {button}
-        </div>
+        {button}
       </section>
 
       <section aria-labelledby="use-case">
@@ -67,9 +68,51 @@ function ButtonWithAriaPressedAttribute() {
         <p>Text</p>
       </section>
 
-      <section aria-labelledby="screen-readers-and-testing-tools">
-        <h2 id="screen-readers-and-testing-tools">Screen readers and Testing tools</h2>
-        <p>Text</p>
+      <section aria-labelledby="screen-readers">
+        <h2 id="screen-readers">Screen readers</h2>
+        <h3 className="mb-4">Mac voice over</h3>
+        <dl>
+          <div className="mb-4">
+            <dt>Selected when not pressed</dt>
+            <dd className="italic">"Button Label", "toggle button", "Example", region</dd>
+          </div>
+
+          <div className="mb-4">
+            <dt>Toggled to pressed while selected</dt>
+            <dd className="italic">"selected", "Button Label", "toggle button"</dd>
+          </div>
+          <div className="mb-4">
+            <dt>Selected when pressed</dt>
+            <dd className="italic">
+              "Button Label", "selected" "toggle button", "Example", region
+            </dd>
+          </div>
+          <div className="mb-4">
+            <dt>Toggled to not pressed while selected</dt>
+            <dd className="italic">"Button Label", "toggle button"</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="testing">
+        <h2 id="testing">Testing</h2>
+        <ul>
+          <li>
+            <pre>
+              <code>{`screen.getByRole('button', { name: 'Button label' })`}</code>
+            </pre>
+          </li>
+          <li>
+            <pre>
+              <code>{`screen.getByRole('button', { name: 'Button label', pressed: true })`}</code>
+            </pre>
+          </li>
+          <li>
+            <pre>
+              <code>{`screen.getByRole('button', { name: 'Button label', pressed: false })`}</code>
+            </pre>
+          </li>
+        </ul>
       </section>
     </main>
   );
