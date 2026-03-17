@@ -2,7 +2,7 @@
 
 Looking into different approaches for defining buttons and switches.
 
-## button and aria-pressed
+## button and aria-pressed (toggle-button)
 
 ```html
 <button aria-pressed="true" type="button">
@@ -34,4 +34,17 @@ Looking into different approaches for defining buttons and switches.
   Text
 </label>
 <input type="checkbox" name="checkbox" id="checkbox" value="value" role="switch" />
+```
+
+## button with aria-expanded (disclosure button)
+
+<!-- details/summary element is preferred -->
+
+```html
+<button aria-expanded="true" aria-controls="controlled-element">
+  Show details
+</button>
+<div id="controlled-element">
+  Details
+</div>
 ```
