@@ -45,6 +45,9 @@ function ButtonWithAriaPressedAttribute() {
               <a href="#screen-readers">Screen readers</a>
             </li>
             <li>
+              <a href="#gotchas">Gotchas</a>
+            </li>
+            <li>
               <a href="#testing">Testing</a>
             </li>
           </ul>
@@ -65,18 +68,19 @@ function ButtonWithAriaPressedAttribute() {
 
       <section aria-labelledby="use-case">
         <h2 id="use-case">Use cases</h2>
-        <p>Text</p>
+        <ul className="list mb-4 list-inside list-disc">
+          <li>Toggle buttons for two states (Play/Pause, On/Off)</li>
+        </ul>
       </section>
 
       <section aria-labelledby="screen-readers">
         <h2 id="screen-readers">Screen readers</h2>
-        <h3 className="mb-4">Mac voice over</h3>
+        <h3 className="mb-4">Mac VoiceOver</h3>
         <dl>
           <div className="mb-4">
             <dt>Selected when not pressed</dt>
-            <dd className="italic">"Button Label", "toggle button", "Example", region</dd>
+            <dd className="italic">"Button Label", "toggle button", "Example", "region"</dd>
           </div>
-
           <div className="mb-4">
             <dt>Toggled to pressed while selected</dt>
             <dd className="italic">"selected", "Button Label", "toggle button"</dd>
@@ -94,21 +98,41 @@ function ButtonWithAriaPressedAttribute() {
         </dl>
       </section>
 
+      <section aria-labelledby="gotchas">
+        <h2 id="gotchas">Gotchas</h2>
+        <ul className="list list-inside list-disc">
+          <li>
+            The label shouldn't change between toggle states as to not confuse users of screen
+            readers (
+            <a href="https://github.com/w3c/aria-practices/issues/121">W3C ARIA Practices</a> and
+            <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
+          </li>
+          <li>
+            Value of aria-pressed not send to server on submit (if button has a name and
+            value-attribute)
+          </li>
+          <li>
+            Can be used for toggling hidden content but disclosure buttons or details/summary tags
+            are probably the better approach
+          </li>
+        </ul>
+      </section>
+
       <section aria-labelledby="testing">
         <h2 id="testing">Testing</h2>
-        <ul>
+        <ul className="list list-inside list-disc">
           <li>
-            <pre>
+            <pre className="inline">
               <code>{`screen.getByRole('button', { name: 'Button label' })`}</code>
             </pre>
           </li>
           <li>
-            <pre>
+            <pre className="inline">
               <code>{`screen.getByRole('button', { name: 'Button label', pressed: true })`}</code>
             </pre>
           </li>
           <li>
-            <pre>
+            <pre className="inline">
               <code>{`screen.getByRole('button', { name: 'Button label', pressed: false })`}</code>
             </pre>
           </li>
