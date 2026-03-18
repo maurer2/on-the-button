@@ -10,7 +10,8 @@
   },
   "sortTailwindcss": {
     "stylesheet": "./src/styles.css",
-    "functions": ["clsx", "classname"],
+    "functions": ["clsx"],
+    "attributes": ["className"],
     "preserveWhitespace": false
   },
   "ignorePatterns": [

@@ -1,80 +1,63 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useReducer } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import { useReducer, type ComponentProps } from 'react';
+
+import PageHeader from '../../components/PageHeader';
+import PageSection from '../../components/PageSection';
+import ButtonComponent from '../../components/ButtonComponent';
+import useElementAsString from '../../hooks/useElementAsString';
+
+type NavItem = NonNullable<ComponentProps<typeof PageHeader>['navItems']>[number];
 
 export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
   component: ButtonWithAriaPressedAttribute,
 });
 
+const navItems = [
+  { href: '#code', label: 'Code' },
+  { href: '#example', label: 'Example' },
+  { href: '#use-case', label: 'Use cases' },
+  { href: '#screen-readers', label: 'Screen readers' },
+  { href: '#gotchas', label: 'Gotchas' },
+  { href: '#testing', label: 'Testing' },
+] as const satisfies NavItem[];
+type NavItemLabel = (typeof navItems)[number]['label'];
+
 function ButtonWithAriaPressedAttribute() {
   const [isPressed, toggleIsPressed] = useReducer((currentIsPressed) => !currentIsPressed, false);
 
-  const button = (
-    <button
-      aria-pressed={isPressed}
-      type="button"
-      onClick={toggleIsPressed}
-      className="border px-4 py-2 hover:text-red-500 hover:underline focus-visible:text-red-500 focus-visible:underline aria-pressed:bg-white aria-pressed:text-black"
-    >
+  const Button = (
+    <ButtonComponent aria-pressed={isPressed} onClick={toggleIsPressed}>
       Button label
-    </button>
+    </ButtonComponent>
   );
-  const buttonAsString = reactElementToJSXString(button, {
-    filterProps: ['onClick', 'className', 'data-tsd-source'],
-    useBooleanShorthandSyntax: false, // keep aria-pressed={false}
-    tabStop: 4,
-  });
+  const buttonMarkup = useElementAsString(Button);
 
   return (
     <main className="mx-auto flex w-[min(100%,100ch)] flex-col gap-6 p-4">
-      <header>
-        <h1 className="mb-4">Button with aria-pressed attribute</h1>
-        <nav aria-labelledby="on-this-page">
-          <h2 id="on-this-page">On this page</h2>
-          <ul className="list list-inside list-disc">
-            <li>
-              <a href="#code">Code</a>
-            </li>
-            <li>
-              <a href="#example">Example</a>
-            </li>
-            <li>
-              <a href="#use-case">Use cases</a>
-            </li>
-            <li>
-              <a href="#screen-readers">Screen readers</a>
-            </li>
-            <li>
-              <a href="#gotchas">Gotchas</a>
-            </li>
-            <li>
-              <a href="#testing">Testing</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <PageHeader
+        pageTitle={'Button with "aria-pressed" attribute'}
+        navItems={navItems}
+        navTitle="On this page"
+        navId="on-this-page"
+      />
 
-      <section aria-labelledby="code">
-        <h2 id="code">Code</h2>
+      <PageSection<NavItemLabel> title="Code" id="code">
         <pre>
-          <code>{buttonAsString}</code>
+          <code>{buttonMarkup}</code>
         </pre>
-      </section>
+      </PageSection>
 
-      <section aria-labelledby="example">
-        <h2 id="example">Example</h2>
-        {button}
-      </section>
+      <PageSection<NavItemLabel> title="Example" id="example">
+        {Button}
+      </PageSection>
 
-      <section aria-labelledby="use-case">
-        <h2 id="use-case">Use cases</h2>
+      <PageSection<NavItemLabel> title="Use cases" id="use-case">
         <ul className="list mb-4 list-inside list-disc">
           <li>Toggle buttons for two states (Play/Pause, On/Off)</li>
         </ul>
-      </section>
+      </PageSection>
 
-      <section aria-labelledby="screen-readers">
-        <h2 id="screen-readers">Screen readers</h2>
+      <PageSection<NavItemLabel> title="Screen readers" id="screen-readers">
         <h3 className="mb-4">Mac VoiceOver</h3>
         <dl>
           <div className="mb-4">
@@ -96,10 +79,9 @@ function ButtonWithAriaPressedAttribute() {
             <dd className="italic">"Button Label", "toggle button"</dd>
           </div>
         </dl>
-      </section>
+      </PageSection>
 
-      <section aria-labelledby="gotchas">
-        <h2 id="gotchas">Gotchas</h2>
+      <PageSection<NavItemLabel> title="Gotchas" id="gotchas">
         <ul className="list list-inside list-disc">
           <li>
             The label shouldn't change between toggle states as to not confuse users of screen
@@ -116,10 +98,9 @@ function ButtonWithAriaPressedAttribute() {
             are probably the better approach
           </li>
         </ul>
-      </section>
+      </PageSection>
 
-      <section aria-labelledby="testing">
-        <h2 id="testing">Testing</h2>
+      <PageSection<NavItemLabel> title="Testing" id="testing">
         <ul className="list list-inside list-disc">
           <li>
             <pre className="inline">
@@ -137,7 +118,7 @@ function ButtonWithAriaPressedAttribute() {
             </pre>
           </li>
         </ul>
-      </section>
+      </PageSection>
     </main>
   );
 }
