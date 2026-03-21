@@ -6,21 +6,21 @@ type PageNavItem = {
 type PageHeaderProps =
   | {
       pageTitle: string;
-      navItems: undefined;
       navTitle: undefined;
+      navItems: undefined;
       navId: undefined;
     }
   | {
       pageTitle: string;
-      navItems: PageNavItem[];
       navTitle: string;
+      navItems: PageNavItem[];
       navId: string;
     };
 
-export default function PageHeader({ pageTitle, navItems, navTitle, navId }: PageHeaderProps) {
+export default function PageHeader({ pageTitle, navTitle, navItems, navId }: PageHeaderProps) {
   return (
     <header>
-      <h1 className="mb-4">{pageTitle}</h1>
+      <h1>{pageTitle}</h1>
       {navItems?.length ? (
         <nav aria-labelledby={navId}>
           <h2 id={navId}>{navTitle}</h2>

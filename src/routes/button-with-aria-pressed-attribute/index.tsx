@@ -33,11 +33,11 @@ function ButtonWithAriaPressedAttribute() {
   const buttonMarkup = useElementAsString(Button);
 
   return (
-    <main className="mx-auto flex w-[min(100%,100ch)] flex-col gap-6 p-4">
+    <main className="mx-auto flex flex-col gap-6 px-4 inline-[min(100%,100ch)]">
       <PageHeader
         pageTitle={'Button with "aria-pressed" attribute'}
-        navItems={navItems}
         navTitle="On this page"
+        navItems={navItems}
         navId="on-this-page"
       />
 
@@ -86,7 +86,7 @@ function ButtonWithAriaPressedAttribute() {
           <li>
             The label shouldn't change between toggle states as to not confuse users of screen
             readers (
-            <a href="https://github.com/w3c/aria-practices/issues/121">W3C ARIA Practices</a> and
+            <a href="https://github.com/w3c/aria-practices/issues/121">W3C ARIA Practices</a> and{' '}
             <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
           </li>
           <li>

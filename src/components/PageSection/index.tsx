@@ -13,9 +13,7 @@ export default function PageSection<T extends string>({
 }: PageSectionProps<T>) {
   return (
     <section aria-labelledby={id}>
-      <h2 className="mb-4" id={id}>
-        {title}
-      </h2>
+      <h2 id={id}>{title}</h2>
       {children}
     </section>
   );

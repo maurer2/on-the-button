@@ -13,7 +13,7 @@ function PlainCheckbox() {
   `;
 
   return (
-    <main className="page-wrap px-4 py-12">
+    <main className="mx-auto px-4 inline-[min(100%,100ch)]">
       <header>
         <h1>Plain checkbox</h1>
         <p>Text</p>

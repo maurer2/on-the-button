@@ -7,7 +7,7 @@ export default function ButtonComponent({ children, className, ...props }: Butto
   return (
     <button
       className={twMerge(
-        'border px-4 py-2 hover:text-red-500 hover:underline focus-visible:text-red-500 focus-visible:underline aria-pressed:bg-white aria-pressed:text-black',
+        'border px-4 py-2 hover:text-primary hover:underline focus-visible:text-primary focus-visible:underline aria-pressed:bg-primary aria-pressed:text-white cursor-pointer',
         className,
       )}
       type="button"

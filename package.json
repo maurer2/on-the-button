@@ -20,6 +20,7 @@
     "@tanstack/react-router-devtools": "latest",
     "@tanstack/router-plugin": "^1.166.6",
     "clsx": "^2.1.1",
+    "github-markdown-css": "^5.9.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-element-to-jsx-string": "^17.0.1",
