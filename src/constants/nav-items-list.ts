@@ -13,4 +13,4 @@ export const navItemsList = {
 } as const satisfies Record<string, NavItem>;
 
 export type NavItemKey = keyof typeof navItemsList;
-export type NavItemLabel = (typeof navItemsList)[NavItemKey]['label']; // using NavItem['label'] looes narrowed types
+export type NavItemLabel = (typeof navItemsList)[NavItemKey]['label']; // NavItem['label'] doesn't have narrowed union type

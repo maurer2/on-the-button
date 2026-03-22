@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
-type PageSectionProps<T extends string> = {
+// export prop type required as ComponentProps helper does not work with generics
+export type PageSectionProps<T extends string> = {
   // title: T | (string & {}); // preset values but allow arbitrary strings as well
   title: T;
   id?: string;

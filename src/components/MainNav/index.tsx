@@ -6,12 +6,12 @@ const navLinks: (LinkProps & { label: string })[] = [
     label: 'Button with "aria-pressed"-attribute',
   },
   {
-    to: '/button-with-switch-role-and-aria-checked-attribute',
-    label: 'Button with role="switch" and "aria-checked"-attribute',
-  },
-  {
     to: '/plain-checkbox',
     label: 'Plain checkbox',
+  },
+  {
+    to: '/button-with-switch-role-and-aria-checked-attribute',
+    label: 'Button with role="switch" and "aria-checked"-attribute',
   },
   {
     to: '/checkbox-with-switch-role',
@@ -42,5 +42,3 @@ export default function MainNav() {
     </nav>
   );
 }
-
-// border px-4 py-2 hover:text-primary hover:underline focus-visible:text-primary focus-visible:underline aria-pressed:bg-primary aria-pressed:text-white

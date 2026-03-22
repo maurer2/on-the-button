@@ -53,6 +53,8 @@ function ButtonWithAriaPressedAttribute() {
       <PageSection<NavItemLabel> title="Use cases" id="use-case">
         <ul className="list mb-4 list-inside list-disc">
           <li>Toggle buttons for two states (Play/Pause, On/Off)</li>
+          <li>Toolbars</li>
+          <li>Triggers outside of forms</li>
         </ul>
       </PageSection>
 
