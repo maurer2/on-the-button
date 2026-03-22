@@ -1,25 +1,24 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useReducer, type ComponentProps } from 'react';
+import { useReducer } from 'react';
 
 import PageHeader from '../../components/PageHeader';
 import PageSection from '../../components/PageSection';
 import ButtonComponent from '../../components/ButtonComponent';
 import useElementAsString from '../../hooks/useElementAsString';
-
-type NavItem = NonNullable<ComponentProps<typeof PageHeader>['navItems']>[number];
+import { navItemsList } from '#/constants/nav-items-list';
 
 export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
   component: ButtonWithAriaPressedAttribute,
 });
 
 const navItems = [
-  { href: '#code', label: 'Code' },
-  { href: '#example', label: 'Example' },
-  { href: '#use-case', label: 'Use cases' },
-  { href: '#screen-readers', label: 'Screen readers' },
-  { href: '#gotchas', label: 'Gotchas' },
-  { href: '#testing', label: 'Testing' },
-] as const satisfies NavItem[];
+  navItemsList['code'],
+  navItemsList['example'],
+  navItemsList['useCase'],
+  navItemsList['screenReaders'],
+  navItemsList['gotchas'],
+  navItemsList['testing'],
+];
 type NavItemLabel = (typeof navItems)[number]['label'];
 
 function ButtonWithAriaPressedAttribute() {

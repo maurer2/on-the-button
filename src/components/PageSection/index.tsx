@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 
 type PageSectionProps<T extends string> = {
-  title: T | (string & {}); // preset values but allow arbitrary strings as well
+  // title: T | (string & {}); // preset values but allow arbitrary strings as well
+  title: T;
   id?: string;
   children?: ReactNode;
 };
