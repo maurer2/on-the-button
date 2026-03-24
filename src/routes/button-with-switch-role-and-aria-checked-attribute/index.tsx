@@ -12,7 +12,7 @@ function ButtonWithSwitchRoleAndAriaCheckedAttribute() {
   `;
 
   return (
-    <main className="mx-auto px-4 inline-[min(100%,100ch)]">
+    <main className="mx-auto flow-root px-4 inline-[min(100%,100ch)]">
       <header>
         <h1>Button with role="switch" and aria-checked attribute</h1>
         <p>Text</p>

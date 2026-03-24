@@ -4,12 +4,12 @@
 @layer base {
   html,
   body {
-    min-height: 100svh;
+    min-block-size: 100svh;
   }
 
   body {
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-inline: hidden;
+    overflow-block: scroll;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

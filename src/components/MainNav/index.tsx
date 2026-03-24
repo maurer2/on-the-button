@@ -28,7 +28,7 @@ export default function MainNav() {
             {/* https://www.joren.co/flex-grow-9999-hack/ */}
             <Link
               to={link.to}
-              className="grow-9999 border p-2 px-4 py-2 text-secondary outline-offset-4 outline-black hover:text-primary hover:underline focus-visible:text-primary focus-visible:underline focus-visible:outline-solid"
+              className="grow-9999 border px-4 py-2 text-secondary outline-offset-4 outline-black hover:text-primary hover:underline focus-visible:text-primary focus-visible:underline focus-visible:outline-solid"
               activeProps={{
                 className:
                   'bg-primary border-primary text-white hover:text-white focus-visible:text-white',
