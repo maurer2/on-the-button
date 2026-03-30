@@ -14,9 +14,7 @@ export const Route = createFileRoute('/button-with-aria-pressed-attribute/')({
 const navItems = [
   navItemsList['code'],
   navItemsList['example'],
-  navItemsList['useCase'],
-  navItemsList['screenReaders'],
-  navItemsList['gotchas'],
+  navItemsList['usage'],
   navItemsList['testing'],
 ];
 type NavItemLabel = (typeof navItems)[number]['label'];
@@ -50,15 +48,29 @@ function ButtonWithAriaPressedAttribute() {
         {Button}
       </PageSection>
 
-      <PageSection<NavItemLabel> title="Use cases" id="use-case">
+      <PageSection<NavItemLabel> title="Usage" id="usage">
         <ul className="list mb-4 list-inside list-disc">
           <li>Toggle buttons for two states (Play/Pause, On/Off)</li>
           <li>Toolbars</li>
           <li>Triggers outside of forms</li>
+          <li>
+            The label shouldn't change between toggle states as to not confuse users of screen
+            readers (
+            <a href="https://github.com/w3c/aria-practices/issues/121">W3C ARIA Practices</a> and{' '}
+            <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
+          </li>
+          <li>
+            Value of aria-pressed not send to server on submit (if button has a name and
+            value-attribute)
+          </li>
+          <li>
+            Can be used for toggling hidden content but disclosure buttons or details/summary tags
+            are probably the better approach
+          </li>
         </ul>
       </PageSection>
 
-      <PageSection<NavItemLabel> title="Screen readers" id="screen-readers">
+      <PageSection<NavItemLabel> title="Testing" id="testing">
         <h3 className="mb-4">Mac VoiceOver</h3>
         <dl>
           <div className="mb-4">
@@ -80,28 +92,7 @@ function ButtonWithAriaPressedAttribute() {
             <dd className="italic">"Button Label", "toggle button"</dd>
           </div>
         </dl>
-      </PageSection>
-
-      <PageSection<NavItemLabel> title="Gotchas" id="gotchas">
-        <ul className="list list-inside list-disc">
-          <li>
-            The label shouldn't change between toggle states as to not confuse users of screen
-            readers (
-            <a href="https://github.com/w3c/aria-practices/issues/121">W3C ARIA Practices</a> and{' '}
-            <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
-          </li>
-          <li>
-            Value of aria-pressed not send to server on submit (if button has a name and
-            value-attribute)
-          </li>
-          <li>
-            Can be used for toggling hidden content but disclosure buttons or details/summary tags
-            are probably the better approach
-          </li>
-        </ul>
-      </PageSection>
-
-      <PageSection<NavItemLabel> title="Testing" id="testing">
+        <h3>Selectors</h3>
         <ul className="list list-inside list-disc">
           <li>
             <pre className="inline">

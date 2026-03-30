@@ -11,12 +11,7 @@ export const Route = createFileRoute('/plain-checkbox/')({
   component: PlainCheckbox,
 });
 
-const navItems = [
-  navItemsList['code'],
-  navItemsList['example'],
-  navItemsList['useCase'],
-  navItemsList['gotchas'],
-];
+const navItems = [navItemsList['code'], navItemsList['example'], navItemsList['usage']];
 type NavItemLabel = (typeof navItems)[number]['label'];
 
 // type PageSectionProps = ComponentProps<typeof PageSection>;
@@ -51,17 +46,17 @@ function PlainCheckbox() {
         {Checkbox}
       </Section>
 
-      <Section title="Use cases" id="use-case">
+      <Section title="Usage" id="usage">
         <ul className="list mb-4 list-inside list-disc">
           <li>State handling in forms</li>
           <li>Represents form state and a change modifies form data</li>
-          <li>Not ideal for triggering actions</li>
-        </ul>
-      </Section>
-
-      <Section title="Gotchas" id="gotchas">
-        <ul className="list mb-4 list-inside list-disc">
-          <li>Support 3 states (checked, not-checked and intermediate)</li>
+          <li>
+            Not ideal for triggering immediate actions like toggling a hamburger menu, but valid for
+            actions that affects the form state directly, e.g. "User has different shipping
+            address"-checkbox is stored in form state and the toggle action reveals or hides fields
+            for address input
+          </li>
+          <li>Supports 3 states (checked, not-checked and intermediate)</li>
           <li>Included in formData</li>
           <li>Browser updates checked state automatically</li>
         </ul>

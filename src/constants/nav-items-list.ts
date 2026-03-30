@@ -6,9 +6,7 @@ type NavItem = {
 export const navItemsList = {
   code: { href: '#code', label: 'Code' },
   example: { href: '#example', label: 'Example' },
-  useCase: { href: '#use-case', label: 'Use cases' },
-  screenReaders: { href: '#screen-readers', label: 'Screen readers' },
-  gotchas: { href: '#gotchas', label: 'Gotchas' },
+  usage: { href: '#Usage', label: 'Usage' },
   testing: { href: '#testing', label: 'Testing' },
 } as const satisfies Record<string, NavItem>;
 
