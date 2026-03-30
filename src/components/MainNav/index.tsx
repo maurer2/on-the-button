@@ -10,12 +10,18 @@ const navLinks: (LinkProps & { label: string })[] = [
     label: 'Plain checkbox',
   },
   {
+    to: '/button-with-aria-expanded-attribute',
+    label: 'Button with "aria-expanded"-attribute',
+  },
+  {
     to: '/button-with-switch-role-and-aria-checked-attribute',
     label: 'Button with role="switch" and "aria-checked"-attribute',
+    disabled: true,
   },
   {
     to: '/checkbox-with-switch-role',
     label: 'Checkbox with role="switch"',
+    disabled: true,
   },
 ];
 
@@ -28,11 +34,12 @@ export default function MainNav() {
             {/* https://www.joren.co/flex-grow-9999-hack/ */}
             <Link
               to={link.to}
-              className="grow-9999 border px-4 py-2 text-secondary outline-offset-4 outline-black hover:text-primary hover:underline focus-visible:text-primary focus-visible:underline focus-visible:outline-solid"
+              className="grow-9999 border px-4 py-2 text-secondary outline-offset-4 outline-black focus-visible:text-primary focus-visible:underline focus-visible:outline-solid [[href]]:hover:text-primary [[href]]:hover:underline [&:not([href])]:cursor-not-allowed [&:not([href])]:opacity-50 [&:not([href])]:hover:no-underline"
               activeProps={{
                 className:
-                  'bg-primary border-primary text-white hover:text-white focus-visible:text-white',
+                  'bg-primary border-primary text-white [[href]]:hover:text-white focus-visible:text-white',
               }}
+              disabled={link.disabled} // renders links without href and adds "aria-disabled"-attribute and role="link"
             >
               {link.label}
             </Link>
