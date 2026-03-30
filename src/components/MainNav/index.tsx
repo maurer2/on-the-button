@@ -16,7 +16,6 @@ const navLinks: (LinkProps & { label: string })[] = [
   {
     to: '/button-with-switch-role-and-aria-checked-attribute',
     label: 'Button with role="switch" and "aria-checked"-attribute',
-    disabled: true,
   },
   {
     to: '/checkbox-with-switch-role',
