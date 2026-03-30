@@ -50,9 +50,8 @@ function ButtonWithAriaPressedAttribute() {
 
       <PageSection<NavItemLabel> title="Usage" id="usage">
         <ul className="list mb-4 list-inside list-disc">
-          <li>Toggle buttons for two states (Play/Pause, On/Off)</li>
-          <li>Toolbars</li>
-          <li>Triggers outside of forms</li>
+          <li>Is used to indicate the current state of a button ("Pressed"/"Not pressed")</li>
+          <li>Triggers an action on a toggle button inside or outside a toolbar</li>
           <li>
             The label shouldn't change between toggle states as to not confuse users of screen
             readers (
@@ -60,12 +59,12 @@ function ButtonWithAriaPressedAttribute() {
             <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
           </li>
           <li>
-            Value of aria-pressed not send to server on submit (if button has a name and
-            value-attribute)
+            Value of the "aria-pressed" attribute not send to server on submit (if button has a name
+            and value-attribute)
           </li>
           <li>
-            Can be used for toggling hidden content but disclosure buttons or details/summary tags
-            are probably the better approach
+            Can theretically be used for toggling the visibility of content but disclosure buttons
+            or details/summary tags are a better
           </li>
         </ul>
       </PageSection>

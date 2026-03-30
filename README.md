@@ -38,8 +38,6 @@ Looking into different approaches for defining buttons and switches.
 
 ## button with aria-expanded (disclosure button)
 
-<!-- details/summary element is preferred -->
-
 ```html
 <button aria-expanded="true" aria-controls="controlled-element">
   Show details
