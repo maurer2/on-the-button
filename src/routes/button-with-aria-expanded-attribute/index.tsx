@@ -43,7 +43,7 @@ function ButtonWithAriaExpandedAttribute() {
               type="text"
               id="sound-name"
               name="sound-name"
-              value="Meowzart"
+              defaultValue="Meowzart"
               className="border px-4 py-2"
             />
           </div>
@@ -53,7 +53,7 @@ function ButtonWithAriaExpandedAttribute() {
               type="text"
               id="sound-type"
               name="sound-type"
-              value="Meow"
+              defaultValue="Meow"
               className="border px-4 py-2"
             />
           </div>
