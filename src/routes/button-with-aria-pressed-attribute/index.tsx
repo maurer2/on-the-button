@@ -51,7 +51,7 @@ function ButtonWithAriaPressedAttribute() {
       <PageSection<NavItemLabel> title="Usage" id="usage">
         <ul className="list mb-4 list-inside list-disc">
           <li>Is used to indicate the current state of a button ("Pressed"/"Not pressed")</li>
-          <li>Triggers an action on a toggle button inside or outside a toolbar</li>
+          <li>Used on toggle buttons that trigger an action, inside or outside a toolbar</li>
           <li>
             The label shouldn't change between toggle states as to not confuse users of screen
             readers (
@@ -74,21 +74,21 @@ function ButtonWithAriaPressedAttribute() {
         <dl>
           <div className="mb-4">
             <dt>Selected when not pressed</dt>
-            <dd className="italic">"Button Label", "toggle button", "Example", "region"</dd>
+            <dd className="italic">"Button label", "toggle button", "Example", "region"</dd>
           </div>
           <div className="mb-4">
             <dt>Toggled to pressed while selected</dt>
-            <dd className="italic">"selected", "Button Label", "toggle button"</dd>
+            <dd className="italic">"selected", "Button label", "toggle button"</dd>
           </div>
           <div className="mb-4">
             <dt>Selected when pressed</dt>
             <dd className="italic">
-              "Button Label", "selected" "toggle button", "Example", region
+              "Button label", "selected", "toggle button", "Example", "region"
             </dd>
           </div>
           <div className="mb-4">
             <dt>Toggled to not pressed while selected</dt>
-            <dd className="italic">"Button Label", "toggle button"</dd>
+            <dd className="italic">"Button label", "toggle button"</dd>
           </div>
         </dl>
         <h3>Selectors</h3>
