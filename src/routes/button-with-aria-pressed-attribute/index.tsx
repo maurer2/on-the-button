@@ -59,12 +59,12 @@ function ButtonWithAriaPressedAttribute() {
             <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
           </li>
           <li>
-            Value of the "aria-pressed" attribute not send to server on submit (if button has a name
+            Value of the "aria-pressed" attribute not sent to server on submit (if button has a name
             and value-attribute)
           </li>
           <li>
-            Can theretically be used for toggling the visibility of content but disclosure buttons
-            or details/summary tags are a better
+            Can theoretically be used for toggling the visibility of content but disclosure buttons
+            or details/summary tags are a better choice
           </li>
         </ul>
       </PageSection>

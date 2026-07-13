@@ -98,7 +98,7 @@ function ButtonWithAriaExpandedAttribute() {
             Only changes the visibility of form fields but doesn't affect the form state as the
             state of the "aria-expanded"-attribute is not part of the form state. A checkbox would
             be appropriate if the search filters toggle represents a user preference like "Enable
-            custom filters" that affect the form state and reveale additional options
+            custom filters" that affects the form state and reveals additional options
           </li>
           <li>Can sometimes be replaced with details/summary elements</li>
         </ul>
