@@ -52,12 +52,17 @@ function PlainCheckbox() {
           <li>Represents form state and a change modifies form data</li>
           <li>
             Not ideal for triggering immediate actions like toggling a hamburger menu, but valid for
-            actions that affects the form state directly, e.g. "User has different shipping
+            actions that affect the form state directly, e.g. "User has different shipping
             address"-checkbox is stored in form state and the toggle action reveals or hides fields
             for address input
           </li>
-          <li>Supports 3 states (checked, not-checked and intermediate)</li>
-          <li>Included in formData</li>
+          <li>
+            Supports 3 states (<em>checked</em>, <em>not-checked</em> and <em>indeterminate</em>).
+            The indeterminate state can only be set via the <em>indeterminate</em>-property, not via
+            an HTML attribute. The indeterminate state does not affect inclusion or exclusion in
+            formData.
+          </li>
+          <li>Included in formData (if checked)</li>
           <li>Browser updates checked state automatically</li>
         </ul>
       </Section>
