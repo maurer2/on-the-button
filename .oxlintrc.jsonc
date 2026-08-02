@@ -1,14 +1,15 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
+    "eslint",
     "import",
-    "typescript",
     "jsx-a11y",
+    "oxc",
     "promise",
     "react",
-    "vitest",
-    "unicorn",
     "react-perf",
+    "typescript",
+    "unicorn",
     "vitest"
   ],
   "options": {
