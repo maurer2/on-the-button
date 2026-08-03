@@ -52,9 +52,9 @@ function PlainCheckbox() {
           <li>Represents form state and a change modifies form data</li>
           <li>
             Not ideal for triggering immediate actions like toggling a hamburger menu, but valid for
-            actions that affect the form state directly, e.g. "User has different shipping
-            address"-checkbox is stored in form state and the toggle action reveals or hides fields
-            for address input
+            actions that affect the form state directly, e.g. &quot;User has different shipping
+            address&quot;-checkbox is stored in form state and the toggle action reveals or hides
+            fields for address input
           </li>
           <li>
             Supports 3 states (<em>checked</em>, <em>not-checked</em> and <em>indeterminate</em>).

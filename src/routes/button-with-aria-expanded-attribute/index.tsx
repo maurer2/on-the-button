@@ -26,7 +26,12 @@ function ButtonWithAriaExpandedAttribute() {
 
   const Component = (
     <search>
-      <form onSubmit={(event) => event.preventDefault()} className="flex flex-col items-start">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+        className="flex flex-col items-start"
+      >
         <ButtonComponent
           type="button"
           onClick={toggleIsExpanded}
@@ -88,17 +93,18 @@ function ButtonWithAriaExpandedAttribute() {
           <li>Toggle buttons that affect the visibility of related content</li>
           <li>
             Defines a relationship between the toggle button and the element that is toggled via the
-            "aria-controls" attribute
+            &quot;aria-controls&quot; attribute
           </li>
           <li>
-            The button label shouldn't change between expand and collapse states as to not confuse
-            users of screen readers
+            The button label shouldn&apos;t change between expand and collapse states as to not
+            confuse users of screen readers
           </li>
           <li>
-            Only changes the visibility of form fields but doesn't affect the form state as the
-            state of the "aria-expanded"-attribute is not part of the form state. A checkbox would
-            be appropriate if the search filters toggle represents a user preference like "Enable
-            custom filters" that affects the form state and reveals additional options
+            Only changes the visibility of form fields but doesn&apos;t affect the form state as the
+            state of the &quot;aria-expanded&quot;-attribute is not part of the form state. A
+            checkbox would be appropriate if the search filters toggle represents a user preference
+            like &quot;Enable custom filters&quot; that affects the form state and reveals
+            additional options
           </li>
           <li>Can sometimes be replaced with details/summary elements</li>
         </ul>

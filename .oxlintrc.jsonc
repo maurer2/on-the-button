@@ -75,25 +75,17 @@
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
-    "import/consistent-type-specifier-style": [
-      "error",
-      "prefer-top-level-if-only-type-imports"
-    ],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level-if-only-type-imports"],
+    // unicorn
+    "unicorn/prefer-query-selector": "off",
     // vitest,
     // "vitest/require-test-timeout": "off",
   },
-  "ignorePatterns": [
-    "__mocks__/**",
-    "dist/**",
-    "statistics/**"
-  ],
+  "ignorePatterns": ["__mocks__/**", "dist/**", "statistics/**", "src/routeTree.gen.ts"],
   "overrides": [
     // disable mandatory return types for React components -> also disables it for functions inside React component files
     {
-      "files": [
-        "src/**/*.{tsx}",
-        "src/**/*.styles.{ts}"
-      ],
+      "files": ["src/**/*.{tsx}", "src/**/*.styles.{ts}"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -101,14 +93,21 @@
     },
     // vitest, jest
     {
-      "files": [
-        "**/*.spec.ts",
-        "**/*.spec.tsx"
-      ],
+      "files": ["**/*.spec.ts", "**/*.spec.tsx"],
       "rules": {
         "eslint/max-lines-per-function": "off",
         "typescript/no-unsafe-type-assertion": "off",
         "unicorn/consistent-function-scoping": "off", // allow "setup" functions that don't use any params inside describe blocks
+        "vitest/require-test-timeout": "off",
+      },
+    },
+    // TanStack route files
+    {
+      "files": ["src/routes/**/*.tsx"],
+      "rules": {
+        "react/only-export-components": "off",
+        "eslint/no-use-before-define": "off",
+        "react/no-multi-comp": "off",
       },
     },
   ],

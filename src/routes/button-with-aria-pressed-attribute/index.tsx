@@ -50,17 +50,20 @@ function ButtonWithAriaPressedAttribute() {
 
       <PageSection<NavItemLabel> title="Usage" id="usage">
         <ul className="list mb-4 list-inside list-disc">
-          <li>Is used to indicate the current state of a button ("Pressed"/"Not pressed")</li>
+          <li>
+            Is used to indicate the current state of a button (&quot;Pressed&quot;/&quot;Not
+            pressed&quot;)
+          </li>
           <li>Used on toggle buttons that trigger an action, inside or outside a toolbar</li>
           <li>
-            The label shouldn't change between toggle states as to not confuse users of screen
+            The label shouldn&apos;t change between toggle states as to not confuse users of screen
             readers (
             <a href="https://github.com/w3c/aria-practices/issues/121">W3C ARIA Practices</a> and{' '}
             <a href="https://github.com/w3c/wcag/issues/2038#issuecomment-920555350">W3C WCAG</a>)
           </li>
           <li>
-            Value of the "aria-pressed" attribute not sent to server on submit (if button has a name
-            and value-attribute)
+            Value of the &quot;aria-pressed&quot; attribute not sent to server on submit (if button
+            has a name and value-attribute)
           </li>
           <li>
             Can theoretically be used for toggling the visibility of content but disclosure buttons
@@ -74,21 +77,27 @@ function ButtonWithAriaPressedAttribute() {
         <dl>
           <div className="mb-4">
             <dt>Selected when not pressed</dt>
-            <dd className="italic">"Button label", "toggle button", "Example", "region"</dd>
+            <dd className="italic">
+              &quot;Button label&quot;, &quot;toggle button&quot;, &quot;Example&quot;,
+              &quot;region&quot;
+            </dd>
           </div>
           <div className="mb-4">
             <dt>Toggled to pressed while selected</dt>
-            <dd className="italic">"selected", "Button label", "toggle button"</dd>
+            <dd className="italic">
+              &quot;selected&quot;, &quot;Button label&quot;, &quot;toggle button&quot;
+            </dd>
           </div>
           <div className="mb-4">
             <dt>Selected when pressed</dt>
             <dd className="italic">
-              "Button label", "selected", "toggle button", "Example", "region"
+              &quot;Button label&quot;, &quot;selected&quot;, &quot;toggle button&quot;,
+              &quot;Example&quot;, &quot;region&quot;
             </dd>
           </div>
           <div className="mb-4">
             <dt>Toggled to not pressed while selected</dt>
-            <dd className="italic">"Button label", "toggle button"</dd>
+            <dd className="italic">&quot;Button label&quot;, &quot;toggle button&quot;</dd>
           </div>
         </dl>
         <h3>Selectors</h3>

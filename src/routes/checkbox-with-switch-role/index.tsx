@@ -15,7 +15,7 @@ function CheckboxWithSwitchRole() {
   return (
     <main className="mx-auto flow-root px-4 inline-[min(100%,100ch)]">
       <header>
-        <h1>Checkbox with role="switch"</h1>
+        <h1>Checkbox with role=&quot;switch&quot;</h1>
         <p>Text</p>
         {/* <nav>
           <ul>

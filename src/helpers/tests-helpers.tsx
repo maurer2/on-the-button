@@ -10,7 +10,7 @@ export async function setupRouter() {
     defaultPendingMinMs: 0,
     routeTree,
   });
-  await render(<RouterProvider<typeof router> router={router} />);
+  await render(<RouterProvider router={router} />);
 
   return router;
 }

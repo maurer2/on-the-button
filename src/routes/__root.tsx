@@ -19,14 +19,14 @@ function RootComponent() {
       <header className="mx-auto flow-root px-4 inline-[min(100%,100ch)]">
         <h2>Navigation</h2>
         <MainNav />
-        {!isHomepage ? (
+        {isHomepage ? null : (
           <Link
             to="/"
             className="ms-auto mbs-4 block outline-offset-4 outline-black inline-fit focus-visible:outline-solid"
           >
             Go back
           </Link>
-        ) : null}
+        )}
       </header>
       <Outlet />
       {/* <TanStackDevtools
