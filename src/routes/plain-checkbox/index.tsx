@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useReducer } from 'react';
 
 import PageHeader from '../../components/PageHeader';
-import PageSection, { type PageSectionProps } from '../../components/PageSection';
+import PageSection from '../../components/PageSection';
 import CheckboxComponent from '../../components/CheckboxComponent';
 import useElementAsString from '../../hooks/useElementAsString';
 import { navItemsList } from '#/constants/nav-items-list';
@@ -14,10 +14,7 @@ export const Route = createFileRoute('/plain-checkbox/')({
 const navItems = [navItemsList['code'], navItemsList['example'], navItemsList['usage']];
 type NavItemLabel = (typeof navItems)[number]['label'];
 
-// type PageSectionProps = ComponentProps<typeof PageSection>;
-export function Section(props: PageSectionProps<NavItemLabel>) {
-  return <PageSection<NavItemLabel> {...props} />;
-}
+const Section = PageSection<NavItemLabel>;
 
 function PlainCheckbox() {
   const [isChecked, toggleIsChecked] = useReducer((currentIsPressed) => !currentIsPressed, false);

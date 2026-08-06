@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useReducer } from 'react';
 
 import PageHeader from '../../components/PageHeader';
-import PageSection, { type PageSectionProps } from '../../components/PageSection';
+import PageSection from '../../components/PageSection';
 import ButtonComponent from '../../components/ButtonComponent';
 import useElementAsString from '../../hooks/useElementAsString';
 import { navItemsList } from '#/constants/nav-items-list';
@@ -14,9 +14,7 @@ export const Route = createFileRoute('/button-with-aria-expanded-attribute/')({
 const navItems = [navItemsList['code'], navItemsList['example'], navItemsList['usage']];
 type NavItemLabel = (typeof navItems)[number]['label'];
 
-export function Section(props: PageSectionProps<NavItemLabel>) {
-  return <PageSection<NavItemLabel> {...props} />;
-}
+const Section = PageSection<NavItemLabel>;
 
 function ButtonWithAriaExpandedAttribute() {
   const [isExpanded, toggleIsExpanded] = useReducer(

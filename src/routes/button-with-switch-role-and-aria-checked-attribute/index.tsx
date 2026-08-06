@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useReducer } from 'react';
 
 import PageHeader from '../../components/PageHeader';
-import PageSection, { type PageSectionProps } from '../../components/PageSection';
+import PageSection from '../../components/PageSection';
 import ButtonComponent from '../../components/ButtonComponent';
 import useElementAsString from '../../hooks/useElementAsString';
 import { navItemsList } from '#/constants/nav-items-list';
@@ -11,12 +11,10 @@ export const Route = createFileRoute('/button-with-switch-role-and-aria-checked-
   component: ButtonWithSwitchRoleAndAriaCheckedAttribute,
 });
 
-export function Section(props: PageSectionProps<NavItemLabel>) {
-  return <PageSection<NavItemLabel> {...props} />;
-}
-
 const navItems = [navItemsList['code'], navItemsList['example']];
 type NavItemLabel = (typeof navItems)[number]['label'];
+
+const Section = PageSection<NavItemLabel>;
 
 function ButtonWithSwitchRoleAndAriaCheckedAttribute() {
   const [isEnabled, toggleIsEnabled] = useReducer((currentIsEnabled) => !currentIsEnabled, false);
